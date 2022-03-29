@@ -1,15 +1,30 @@
 
 import React, {Component} from 'react';
-import {View, StyleSheet} from 'react-native';
-import Viewer from './components/view';
-
+import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
 function App (){
   
-    return(
-      <View style={styles.container}>
-        <Viewer/>
-        <View style={styles.Rojo}></View>
-        <View style={styles.blanco}></View>
+const counters=0;
+    return (
+      <View style ={styles.container}>
+
+        <View style={styles.sub}>
+         
+          <TouchableOpacity style={styles.btn}>
+          <Text style={styles.btnTxt}>{counters}</Text>
+          onPress={() => {counters+1;}}
+
+          </TouchableOpacity>
+
+          <View style={styles.counterContainer}>
+            <Text style={styles.counter}>{counters}</Text>
+          </View>
+
+
+          <TouchableOpacity style={styles.btn}>
+          <Text style={styles.btnTxt}>-</Text>
+          </TouchableOpacity>
+
+        </View>
       </View>
     );
 }
@@ -18,20 +33,57 @@ function App (){
 
 
 const styles = StyleSheet. create({
-Rojo:{ 
-  flex: 1, 
-  backgroundColor: 'red', 
-},
 
-container:{
-  flex: 1, 
- 
-},
+  container: {
+    flex: 1,
+    backgroundColor: '#2c3e58',
+    justifyContent: 'center',
+    
+  },
+  sub: {
+    height: 50,
+    width: '100%',
+    paddingHorizontal: 10,
+    flexDirection: 'row',
+    
 
-blanco: {
-  flex: 1, 
-  backgroundColor: '#ff5', 
-}
+  },
+
+  btn: {
+    width: 90,
+    height: 50,
+    justifyContent: 'center',
+    alignContent: 'center',
+    backgroundColor: '#ecf0f1',
+    alignItems: 'center',
+    borderRadius: 20,
+
+
+  },
+
+  btnTxt: {
+    fontSize: 25,
+    color: '#7f8c8d',
+    fontWeight: 'bold',
+    fontSize: 30,
+    
+    
+  },
+
+  counterContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center'
+
+  },
+
+  counter: {
+    fontSize: 30,
+    color: '#fff',
+    fontWeight: 'bold',
+    
+  }
 
 
 });
